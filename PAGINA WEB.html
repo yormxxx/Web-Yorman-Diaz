@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yorman Díaz — Portafolio</title>
+  <meta name="description" content="Portafolio de Yorman Díaz - Diseño web, Programación, Ciberseguridad y Calidad en Desarrollo de Software" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#050506; /* casi negro */
+      --card:#0b1220; /* azul muy oscuro */
+      --accent:#1976d2; /* azul brillante */
+      --neon:#00e6ff; /* acento neón */
+      --glass: rgba(255,255,255,0.04);
+      --muted:#9aa7bf;
+      --radius:14px;
+      --avatar-size:160px; /* ajusta este valor si quieres otro tamaño */
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#e6eef8;background:linear-gradient(180deg,var(--bg) 0%, #071127 60%);}
+    a{color:var(--neon);text-decoration:none}
+    header{position:sticky;top:12px;z-index:40;padding:18px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0ea5b7);display:flex;align-items:center;justify-content:center;font-weight:800;color:#031225;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+    nav a:hover{color:white;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(6px)}
+
+    .container{max-width:1100px;margin:28px auto;padding:28px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    h1{font-size:34px;margin:0 0 8px 0;line-height:1.05}
+    .sub{color:var(--muted);margin-bottom:12px}
+    .roles{display:flex;gap:8px;flex-wrap:wrap}
+    .role{background:linear-gradient(90deg, rgba(25,118,210,0.12), rgba(0,230,255,0.06));padding:8px 12px;border-radius:999px;font-weight:700;color:var(--neon);border:1px solid rgba(0,230,255,0.06)}
+
+    .profile-card{padding:22px;border-radius:12px;background:linear-gradient(135deg, rgba(9,16,28,0.8), rgba(6,11,20,0.6));border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:12px;align-items:stretch}
+
+    /* AVATAR ajustado: usa --avatar-size para cambiar el tamaño */
+    .avatar {
+      width: var(--avatar-size);
+      height: var(--avatar-size);
+      min-width: var(--avatar-size);
+      min-height: var(--avatar-size);
+      border-radius: 18px; /* usa 50% para circular */
+      overflow: hidden;
+      margin: 0 auto;
+      background: linear-gradient(180deg,#061227,#091827);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 20px rgba(3,8,18,0.6);
+    }
+
+    /* Si prefieres avatar circular, añade la clase 'circle' al contenedor: <div class="avatar circle"> */
+    .avatar.circle { border-radius:50%; }
+
+    .avatar-img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover; /* recorta centrado sin distorsionar */
+      image-rendering: auto;
+    }
+
+    .avatar-fallback {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      height:100%;
+      font-weight:800;
+      font-size:38px;
+      color:#021426;
+      background:linear-gradient(90deg,var(--accent),#0ea5b7);
+    }
+
+    .cta{display:flex;gap:10px}
+    .btn{padding:10px 14px;border-radius:10px;font-weight:700;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(90deg, rgba(25,118,210,0.12), transparent);cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#0ea5b7);color:#021426;border:none;box-shadow:0 10px 30px rgba(13,88,160,0.18)}
+
+    /* FEATURES */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .feature{padding:18px;border-radius:12px;background:var(--glass);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.02)}
+    .feature h3{margin:6px 0 0 0}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* PROJECTS */
+    .projects{margin-top:26px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden}
+    .project::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent, rgba(0,0,0,0.25));opacity:0;transition:opacity .35s}
+    .project:hover::after{opacity:1}
+
+    /* CONTACT */
+    .contact{margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(9,20,32,0.6), rgba(4,10,18,0.6));border:1px solid rgba(255,255,255,0.03)}
+    .contact .line{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+    footer{max-width:1100px;margin:36px auto;color:var(--muted);text-align:center;font-size:13px;padding:10px}
+
+    /* responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .projects{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .grid{grid-template-columns:1fr}
+      :root { --avatar-size:120px; } /* reduce avatar en pantallas pequeñas */
+    }
+
+    /* small animations */
+    .neon-line{height:2px;background:linear-gradient(90deg,var(--neon),transparent);width:72px;border-radius:4px;margin:12px 0}
+    .tilt{transform:perspective(800px) rotateX(2deg) rotateY(-2deg)}
+
+    /* simple fade-up */
+    .fade{opacity:0;transform:translateY(8px);animation:fadeIn .7s ease forwards}
+    .delay-1{animation-delay:.08s}.delay-2{animation-delay:.16s}.delay-3{animation-delay:.28s}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">YD</div>
+      <div>
+        <div style="font-weight:800">Yorman Díaz</div>
+        <div style="font-size:12px;color:var(--muted)">Diseño Web • Programación • Ciberseguridad • Calidad SW</div>
+      </div>
+    </div>
+    <nav aria-label="Navegación principal">
+      <a href="#about">Sobre mí</a>
+      <a href="#services">Servicios</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card fade delay-1">
+        <h1>Hola — soy <span style="color:var(--neon)">Yorman Díaz</span></h1>
+        <p class="sub">Creo experiencias digitales profesionales: diseño web, desarrollo, seguridad y control de calidad para software.</p>
+        <div class="roles">
+          <div class="role">Diseño Web</div>
+          <div class="role">Programación</div>
+          <div class="role">Ciberseguridad</div>
+          <div class="role">Calidad SW</div>
+        </div>
+
+        <div class="neon-line" aria-hidden="true"></div>
+
+        <div style="display:flex;gap:10px;margin-top:14px">
+          <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Ver proyectos</button>
+          <a class="btn primary" href="mailto:yormanamaya2019@gmail.com">Contactar</a>
+        </div>
+
+        <div class="grid" style="margin-top:18px">
+          <div class="feature fade delay-2">
+            <strong>Diseño Web</strong>
+            <p class="muted">UI/UX, sitios responsivos, landing pages y tiendas pequeñas optimizadas para rendimiento.</p>
+          </div>
+          <div class="feature fade delay-3">
+            <strong>Programación</strong>
+            <p class="muted">Front-end y back-end: HTML, CSS, JavaScript, Node.js; proyectos estructurados y limpios.</p>
+          </div>
+          <div class="feature fade delay-1">
+            <strong>Ciberseguridad</strong>
+            <p class="muted">Pruebas básicas de penetración, endurecimiento, buenas prácticas y checklist de seguridad.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="profile-card tilt fade delay-2" aria-label="Perfil">
+        <!-- AVATAR: cambia el nombre LOGO YD.jpg si tu archivo tiene otro nombre -->
+        <div class="avatar circle" aria-hidden="false">
+          <img class="avatar-img" src="LOGO YD.jpg" alt="Yorman Díaz — Logo / Foto" loading="lazy"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="avatar-fallback" style="display:none">YD</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:800">Yorman Díaz</div>
+            <div class="muted">Diseño • Programación • Ciberseguridad</div>
+          </div>
+          <div style="text-align:right;color:var(--muted)">Barranquilla, Colombia</div>
+        </div>
+
+        <div class="line" style="justify-content:space-between">
+          <div style="font-size:13px;color:var(--muted)"><strong>Email:</strong><br><a href="mailto:yormanamaya2019@gmail.com">yormanamaya2019@gmail.com</a></div>
+          <div style="text-align:right;font-size:13px;color:var(--muted)"><strong>Disponible:</strong><br>Freelance / Contrato</div>
+        </div>
+
+        <div style="display:flex;gap:10px;justify-content:center">
+          <a class="btn" href="#services">Mis servicios</a>
+          <a class="btn" href="#contact">Contratar</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" class="fade delay-1" style="margin-top:18px">
+      <h2>Servicios</h2>
+      <p class="muted">Soluciones adaptadas a proyectos pequeños y medianos — foco en seguridad, rendimiento y calidad.</p>
+      <div class="grid" style="margin-top:12px">
+        <div class="feature">
+          <h3>Desarrollo Front-end</h3>
+          <p class="muted">HTML5, CSS3 avanzado, animaciones, accesibilidad y rendimiento.</p>
+        </div>
+        <div class="feature">
+          <h3>Back-end & APIs</h3>
+          <p class="muted">Node.js, Express, integración de bases de datos y despliegue básico.</p>
+        </div>
+        <div class="feature">
+          <h3>Testing & Calidad</h3>
+          <p class="muted">Pruebas funcionales, unitarias y revisión de procesos para asegurar entregas consistentes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="project">
+        <h3>Proyecto 1 — Landing corporativa</h3>
+        <p class="muted">Landing responsive con microinteracciones y optimización SEO técnico.</p>
+      </div>
+      <div class="project">
+        <h3>Proyecto 2 — Tienda en línea</h3>
+        <p class="muted">Catálogo, carrito y pasarela de pago de prueba (integración básica).</p>
+      </div>
+      <div class="project">
+        <h3>Proyecto 3 — Auditoría de seguridad</h3>
+        <p class="muted">Informe con hallazgos, prioridades y recomendaciones de remediación.</p>
+      </div>
+      <div class="project">
+        <h3>Proyecto 4 — Dashboard de métricas</h3>
+        <p class="muted">Panel con estadísticas, gráficas e indicadores clave para equipos.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contacto</h2>
+      <p class="muted">¿Tienes un proyecto o quieres colaborar? Envíame un correo o usa el contacto rápido.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a class="btn primary" href="mailto:yormanamaya2019@gmail.com">Escríbeme</a>
+        <button class="btn" onclick="copyEmail()">Copiar correo</button>
+        <a class="btn" href="#projects">Ver portafolio</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Yorman Díaz
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // copiar email
+    function copyEmail(){
+      navigator.clipboard?.writeText('yormanamaya2019@gmail.com').then(()=>{
+        alert('Correo copiado al portapapeles');
+      }).catch(()=>{alert('No se pudo copiar. Usa el enlace de correo.')});
+    }
+    // animaciones reveal
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.fade').forEach((el,i)=>{
+        el.style.animationDelay = (i*80)+'ms';
+        el.classList.add('in');
+      });
+    });
+  </script>
+</body>
+</html>
+

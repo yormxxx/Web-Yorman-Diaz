@@ -1,0 +1,22 @@
+:root{
+  --bg:#050506;
+  --card:#0b1220;
+  --accent:#1976d2;
+  --neon:#00e6ff;
+  --glass: rgba(255,255,255,0.04);
+  --muted:#9aa7bf;
+  --radius:14px;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  color:#e6eef8;
+  background:linear-gradient(180deg,var(--bg) 0%, #071127 60%);
+}
+
+/* ...resto de tus estilos... */
